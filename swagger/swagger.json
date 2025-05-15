@@ -1,0 +1,47 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "tittle": "API de Butacas",
+        "version": "1.0.0",
+        "description": "Registro de butacas seleccionadas por los usuarios"
+    },
+    "paths": {
+        "/api/butacas/guardar": {
+            "post": {
+                "summary": "Guardar butacas seleccionadas",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "butacas": {
+                                        "type": "array",
+                                        "items": { "type": "string" }
+                                    }
+                                },
+                                "example": {
+                                    "butacas": ["1", "12", "35"]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": { "description": "Butacas guardadas correctamente"}
+                }
+            }
+        },
+        "/api/butacas": {
+            "get": {
+                "summary": "Obtener todas las butacas guardadas",
+                "responses": {
+                    "200": {
+                        "description": "Lista de registros"
+                    }
+                }
+            }
+        }
+    }
+}
